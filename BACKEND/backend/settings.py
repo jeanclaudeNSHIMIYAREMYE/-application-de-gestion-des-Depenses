@@ -1,5 +1,7 @@
 
 from pathlib import Path
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,6 +17,15 @@ SECRET_KEY = 'django-insecure-1i3-*9+&th##r+@rg9cs*d+wrhahx0!n$l#6-%f8ry#&7a3ff6
 DEBUG = True
 
 ALLOWED_HOSTS = [ ".onrender.com",]
+
+
+
+
+DATABASES = {
+    "default": dj_database_url.parse(
+        os.environ.get("DATABASE_URL")
+    )
+}
 
 
 # Application definition
